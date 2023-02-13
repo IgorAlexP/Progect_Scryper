@@ -6,8 +6,11 @@ url = "https://service.gadgetufa.ru/remont-samsung/samsung-galaxy-a/"
 
 r = requests.get(url)
 soup = BeautifulSoup(r.text, 'lxml')
+soup_name = soup.find('div', class_ ='flex-wrap').find('div', class_ = 'Name').find('a').text
 
-soup_name = soup.findAll('div', class_='SubCategory')#.find('div', class_= 'Name')
-soup_price = soup.find('div', class_='Services').find('div', class_= 'Price')
-print(soup_name)  
-print(soup_price)
+soup = soup.find('div', class_ ='flex-wrap').find('div', class_ = 'Name').find('a').get('href')
+link = "https://service.gadgetufa.ru" + soup
+print(link)
+
+
+print(soup_name)
