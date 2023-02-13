@@ -7,4 +7,7 @@ url = "https://service.gadgetufa.ru/remont-samsung/samsung-galaxy-a/"
 r = requests.get(url)
 soup = BeautifulSoup(r.text, 'lxml')
 
-print(soup.find('div', class_='Category'))
+soup_name = soup.findAll('div', class_='SubCategory')#.find('div', class_= 'Name')
+soup_price = soup.find('div', class_='Services').find('div', class_= 'Price')
+print(soup_name)  
+print(soup_price)
